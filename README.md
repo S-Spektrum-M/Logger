@@ -9,6 +9,9 @@
 > [!NOTE]
 > Everything assumes namespace Spektral::Log
 
+> [!TIP]
+> Compile with -O3 as this project relies HEAVILY on Named RVO.
+
 ```cpp
 Logger a("/path/to/log/dir");
 a.insert(LogLevel, SourceType::make(args), MessageType::make(args));
