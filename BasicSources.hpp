@@ -1,14 +1,16 @@
+#pragma once
 #include "Logger.hpp"
+#include "StrConv.hpp"
 
-class SourceString : public ISource {
-    std::string source;
+template <StrConv T> class Source : public ISource {
+    T val;
 
   public:
-    SourceString(std::string src) : source(src) {}
-    operator std::string() { return source; }
-    template <typename... Args> static SourceString *make(Args... args) {
-        SourceString *ret;
-        ret = new SourceString(args...);
+    Source(T val) : val(val) {}
+    operator std::string() { return (std::string)val; }
+    template <typename... Args> static Source *make(Args... args) {
+        Source *ret;
+        ret = new Source(args...);
         return ret;
     }
 };
