@@ -5,6 +5,8 @@
 #include <set>
 #include <string>
 
+static_assert(__cplusplus == 202002L, "Spektral::Log requires C++20");
+
 namespace Spektral::Log {
 enum LogLevels : char {
     INFO,
