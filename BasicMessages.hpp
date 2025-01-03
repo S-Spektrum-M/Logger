@@ -2,6 +2,7 @@
 #include "Logger.hpp"
 #include "StrConv.hpp"
 
+namespace Spektral::Log {
 template <StrConv T> class Message : public IMessage {
     T val;
 
@@ -27,3 +28,4 @@ class Message_int : public IMessage {
         return ret;
     }
 };
+}

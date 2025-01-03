@@ -2,6 +2,7 @@
 #include "Logger.hpp"
 #include "StrConv.hpp"
 
+namespace Spektral::Log {
 template <StrConv T> class Source : public ISource {
     T val;
 
@@ -14,3 +15,4 @@ template <StrConv T> class Source : public ISource {
         return ret;
     }
 };
+}

@@ -5,13 +5,13 @@
 #include <set>
 #include <string>
 
+namespace Spektral::Log {
 enum LogLevels : char {
     INFO,
     WARN,
     DEBUG,
     ERROR,
 };
-
 
 class ISource {
   public:
@@ -81,3 +81,4 @@ class Logger {
     std::set<LogEvent> log_;
     std::array<std::ofstream, 4> files_;
 };
+} // namespace Spektral::Log
