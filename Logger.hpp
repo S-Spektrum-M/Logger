@@ -12,7 +12,6 @@ enum LogLevels : char {
     ERROR,
 };
 
-inline std::string __LevelProc(LogLevels level);
 
 class ISource {
   public:
@@ -49,7 +48,7 @@ class LogEvent {
     bool operator<(const LogEvent &cmp) const { return time < cmp.time; };
 
     operator std::string() {
-        return std::format("{}: {}: {} from {}\n", time, __LevelProc(level),
+        return std::format("{}: {} from {}\n", time,
                            message->operator std::string(),
                            source->operator std::string());
     }
@@ -82,16 +81,3 @@ class Logger {
     std::set<LogEvent> log_;
     std::array<std::ofstream, 4> files_;
 };
-
-inline std::string __LevelProc(LogLevels level) {
-    switch (level) {
-    case INFO:
-        return "INFO";
-    case WARN:
-        return "WARN";
-    case DEBUG:
-        return "DEBUG";
-    case ERROR:
-        return "ERROR";
-    }
-}
