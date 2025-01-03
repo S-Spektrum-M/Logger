@@ -1,10 +1,14 @@
-# BinLog
+# Spektral BTLog
 
 - Very extensible and simple binary tree backed thread-safe logger
 
 ## Usage
 
 ### Log Insert
+
+> [!NOTE]
+> Everything assumes namespace Spektral::Log
+
 ```cpp
 Logger a("/path/to/log/dir");
 a.insert(LogLevel, SourceType::make(args), MessageType::make(args));
@@ -12,7 +16,6 @@ a.insert(LogLevel, SourceType::make(args), MessageType::make(args));
 
 ### Defining a SourceType
 ```cpp
-#include "BinLog/Logger.hpp"
 class SourceType : public ISource {
 private:
     // YOUR VALUE
@@ -28,7 +31,6 @@ public:
 
 ### Defining a MessageType
 ```cpp
-#include "BinLog/Logger.hpp"
 class MessageType : public IMessage {
 private:
     // YOUR VALUE
