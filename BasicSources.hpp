@@ -1,5 +1,5 @@
 #pragma once
-#include "Logger.hpp"
+#include "LogEvent.hpp"
 #include "StrConv.hpp"
 
 namespace Spektral::Log {
