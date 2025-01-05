@@ -5,27 +5,29 @@
 namespace Spektral::Log {
 template <StrConv T> class Source : public ISource {
     T val;
+    Source(T val) : val(val) {}
 
   public:
-    Source(T val) : val(val) {}
     operator std::string() { return (std::string)val; }
-    template <typename... Args> static Source *make(Args... args) {
-        Source *ret;
-        ret = new Source(args...);
-        return ret;
+    static Source *make(T &val) {
+        return new Source(val);
+    }
+    static Source *make(T &&val) {
+        return new Source(val);
     }
 };
 
 class Source_int : public ISource {
     int val;
+    Source_int(int val) : val(val) {}
 
 public:
-    Source_int(int val) : val(val) {}
     operator std::string() {return std::to_string(val);}
-    template <typename... Args> static Source_int *make(Args... args) {
-        Source_int *ret;
-        ret = new Source_int(args...);
-        return ret;
+    static Source_int *make(int &args) {
+        return new Source_int(args);
+    }
+    static Source_int *make(int &&args) {
+        return new Source_int(args);
     }
 };
 }
