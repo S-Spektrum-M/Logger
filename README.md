@@ -1,6 +1,6 @@
-# Spektral BTLog
+# Spektral Logger
 
-- Very extensible and simple binary tree backed thread-safe logger
+A simple/extensible(see usage) fast(see benchmarks) looger
 
 ## Usage
 
