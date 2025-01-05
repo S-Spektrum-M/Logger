@@ -1,6 +1,6 @@
-#include "../BasicMessages.hpp"
-#include "../BasicSources.hpp"
-#include "../Logger.hpp"
+#include "../includes/BasicMessages.hpp"
+#include "../includes/BasicSources.hpp"
+#include "../includes/Logger.hpp"
 #include <benchmark/benchmark.h>
 #include <ctime>
 #include <unistd.h>
