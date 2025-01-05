@@ -5,23 +5,27 @@
 namespace Spektral::Log {
 template <StrConv T> class Message : public IMessage {
     T val;
-    Message(T val) : val(val) {}
 
   public:
+    Message(T val) : val(val) {}
     operator std::string() { return (std::string)val; }
     template <typename... Args> static Message *make(Args... args) {
-        return new Message(args...);
+        Message *ret;
+        ret = new Message(args...);
+        return ret;
     }
 };
 
 class Message_int : public IMessage {
     int val;
-    Message_int(int val) : val(val) {}
 
   public:
+    Message_int(int val) : val(val) {}
     operator std::string() { return std::to_string(val); }
-    template <typename... Args> static Message_int *make(int val) {
-        return new Message_int(val);
+    template <typename... Args> static Message_int *make(Args... args) {
+        Message_int *ret;
+        ret = new Message_int(args...);
+        return ret;
     }
 };
 }
